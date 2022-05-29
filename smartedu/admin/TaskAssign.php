@@ -80,6 +80,10 @@ if(!isset($_SESSION['admin_id'])) //check admin
 							<span class="fa fa-user"></span>
 							Task Tittle :<input type="text" placeholder="Enter Tittle" name="task_name" required=""/>
 						</div>	
+						<div class="icon1"> 
+							<span class="fa fa-user"></span>
+							Task Subject :<input type="text" placeholder="Enter Subject" name="task_subject" required=""/>
+						</div>	
 
 						<div class="icon1">
 							<span class="fa fa-user"></span>
@@ -131,11 +135,12 @@ if(!isset($_SESSION['admin_id'])) //check admin
 		$taskDetail=$_POST['task_details'];
 		$taskDeadLine=$_POST['deadline'] ; 
 		$taskProject=$_POST['projects'];
+		$task_project=$_POST['task_subject'];
 		
 		// $sql = "INSERT INTO task (task_name,task_details,task_project,dead_line,task_receiver,task_sender,task_sender_name,task_sender_image)
 		// VALUES ('$taskName', '$taskDetail','$taskProject','$taskDeadLine','$userId','$myId','$myName','$myProfile')";
        
-        $result = $func->insert('task',array('task_name','task_details','task_project','dead_line','task_receiver','task_sender','task_sender_name','task_sender_image'),array("'$taskName'", "'$taskDetail'","'$taskProject'","'$taskDeadLine'","'$userId'","'$myId'","'$myName'","'$myProfile'"));
+        $result = $func->insert('task',array('task_name','task_details','task_project','dead_line','task_receiver','task_sender','task_sender_name','task_sender_image','subject'),array("'$taskName'", "'$taskDetail'","'$taskProject'","'$taskDeadLine'","'$userId'","'$myId'","'$myName'","'$myProfile'","'$task_project'"));
 
 		  // insert above fetched details into task 
 		if ($result === TRUE) 

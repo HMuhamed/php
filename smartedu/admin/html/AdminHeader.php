@@ -8,6 +8,21 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="../css/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/custom.css">
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
@@ -43,6 +58,42 @@
 </style>
   </head>
   <body>
+       	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html">
+					<img src="../images/logo.png" alt="" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="AdminHome.php">Home</a></li>
+            <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Lendet </a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="programimi_ne_internet.php">Programimi ne Internet </a>
+								<a class="dropdown-item" href="DB.php">DB  </a>
+								<a class="dropdown-item" href="sistemet_operative.php">SO</a>
+                <a class="dropdown-item" href="algoritmet.php">Algoritmet</a>
+                <a class="dropdown-item" href="AddNewSubject.php">Shto Lendet</a>
+                <a class="dropdown-item" href="AddProject.php">Shto Projektet</a>
+							</div>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="UserTaskSender.php">Dorezimet</a></li>
+						<li class="nav-item"><a class="nav-link" href="signup.php">Vleresimet</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.php">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Logout.php">Dil</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
     <?php 
         require '../Classes/init.php';
         $func = new Operation();
@@ -59,26 +110,7 @@
         }
       
   ?>
-    <header>
-       <nav class="navbar navbar-expand-lg navbar-light text-light py-3 main-nav" style="background-color: #2d5bb1;">
-          <div class="container">
-            <a class="navbar-brand" href="index.html">  <a href="AdminHome.php" class="logo"><img src="<?php echo "$imagePath";?>" style="border-radius:50%; margin-right: 25px;height: 70px;width: 65px;" ></a></a>
-              <a class="name" ><?php echo "Admin  ". $fname; ?> </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">            
-                  <li class="nav-item">
-                    <form>
-                      <a class="logout" href="../Logout.php">Logout</a></form>
-                  </li>
-                </ul>
-              </div>
-          </div>
-        </nav>
-    </header>
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

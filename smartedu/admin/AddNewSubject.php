@@ -114,51 +114,19 @@ h1
   <!-- add new user form -->
   <div class="w5layouts-main"> 
     <div class="updateprofile-layer">
-      <h1 style="color:white;">Add New User</h1>
+      <h1 style="color:white;">Shto Lenden e Re</h1>
       <div class="header-main1">  
         <div class="header-left-bottom">
           <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">	
 
             <div class="icon1">
               <span class="fa fa-user"></span>
-              <input type="text" placeholder="First Name" name="fname" required=""/>
-            </div>	
-
-            <div class="icon1">
-              <span class="fa fa-user"></span>
-              <input type="text" placeholder="Last Name" name="lname"  "required=""/>
-            </div>	
-
-            <div class="icon1">
-              <span class="fa fa-user"></span>
-              <input type="email" placeholder="Email Address" name="email"  required=""/>
-            </div>
-
-            <div class="icon1">
-              <span class="fa fa-user"></span>
-              <input type="password" placeholder="Password" name="password"  required=""/>
+              <input type="text" placeholder="Emri i Lendes" name="subject_name" required=""/>
             </div>  
-
-            <div class="icon1">
-              <span class="fa fa-user"></span>
-              <input type="file" name="profile" />
-            </div>  
-
-            <div class="icon1">
-              <span class="fa fa-user"></span>
-              Gender :<input type="radio" name="gender" value="male" > Male
-              <input type="radio" name="gender" value="female"> Female
-              <br>
-            </div>
-
-            <label class="switch">
-              <input type="checkbox" name="userstatus" value="1">
-              <span class="slider round"></span><br>
-            </label>	
 
 
             <div class="bottom">
-              <input  type="submit" class="btn" name="createuser" value="Create" />
+              <input  type="submit" class="btn" name="createuser" value="Krijo" />
             </div><br>
           </form>	
         </div>			
@@ -172,36 +140,17 @@ h1
   if(isset($_POST["createuser"])) // on submit extact above orm details
   {
     $function = new Operation();
-    $userFname=$_POST['fname'];
-    $userLname=$_POST['lname'];
-    $userEmail=$_POST['email'] ; 
-    $userPassword=$_POST['password'];
-    $userGender=$_POST['gender'];
-    $userStatus = $_POST['userstatus'];
-    $uploaddir = '../images/Profile_Images/';
-    $uploadfile = $uploaddir . basename($_FILES['profile']['name'].time());
-
-    error_reporting(E_ALL);
-    echo "<p>";
-    if (move_uploaded_file($_FILES['profile']['tmp_name'], $uploadfile)) // upload user image
-    {
-
-    }
-    else {
-     echo "Upload failed";
-   }
-
-   echo "</p>";
+    $subject_name=$_POST["subject_name"];
   
    
-   $result = $function->insert('user',array('user_fname','user_lname','user_email','user_password','user_image','user_status','user_gender'),array("'$userFname'", "'$userLname'","'$userEmail'","'$userPassword'","'$uploadfile'","'$userStatus'","'$userGender'"));
+   $result = $function->insert('subjects_table',array('subject_name'),array("'$subject_name'"));
    // $result = $function->insert('user',array('user_fname','user_lname','user_email','user_password','user_image','user_status','user_gender'),array("'"$_POST['fname']"'", "'"$_POST['lname']"'","'"$_POST['email']"'","'"$_POST['password']"'","'$imagePath'","'"$_POST['userstatus']"'","'"$_POST['gender']"'"));
    
     if($result === TRUE)
     {?>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>          
-      <div id="popup"><?php echo $userFname." ".$userLname." "; ?>SUCCESSFULLY ADDED</div>
+      <div id="popup"><?php echo $subject_name." "; ?>SUCCESSFULLY ADDED</div>
       <script>history.pushState({}, "", "")</script>
       <script type="text/javascript">
         $(function() {

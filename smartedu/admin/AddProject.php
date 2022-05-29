@@ -134,6 +134,11 @@ h1{
                             <label for="exampleInputEmail1">Project Name</label>
                             <input type="text"  name="projectname" placeholder="Project Name" required>
                         </div>  
+                        <div class="icon1">
+                            <span class="fa fa-user"></span>
+                            <label for="exampleInputEmail1">Subject Name</label>
+                            <input type="text"  name="subject_name" placeholder="Subject Name" required>
+                        </div>
 
                         <div class="icon1">
                             <span class="fa fa-user"></span>
@@ -166,17 +171,18 @@ if(isset($_POST['submit'])) //on submit
    $projectName = $_POST['projectname']; // get above form details in variable
    $projectDescription = $_POST['projectdetails'];
    $projectStatus = $_POST['projectstatus'];
+   $subject_name=$_POST['subject_name'];
 
    echo "$projectName";
 
-    if ($_POST['projectname']==null || $_POST['projectdetails']==null ) // empty field submission check
+    if ($_POST['projectname']==null || $_POST['projectdetails']==null  || $_POST['subject_name']==null) // empty field submission check
     {
      echo '<span style="color:red"> First Enter Something<br></span>';
     } 
     
     else
     {
-        $result = $func->insert('project',array('project_name','project_description','project_status'),array("'$projectName'","'$projectDescription'","'$projectStatus'"));
+        $result = $func->insert('project',array('project_name','project_description','project_status','subject_name'),array("'$projectName'","'$projectDescription'","'$projectStatus'","'$subject_name'"));
 
         if ($result === TRUE)  //insert form details in project table
         {

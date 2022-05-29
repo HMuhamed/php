@@ -73,16 +73,16 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a class="nav-link" href="UserHome.php">Home</a></li>
             <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Lendet </a>
+							<a class="nav-link dropdown-toggle" href="UserHome.php" id="dropdown-a" data-toggle="dropdown">Lendet </a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="course-grid-2.html">Programimi ne Internet </a>
-								<a class="dropdown-item" href="course-grid-3.html">DB  </a>
-								<a class="dropdown-item" href="course-grid-4.html">SO</a>
-                <a class="dropdown-item" href="course-grid-4.html">Algoritmet</a>
+								<a class="dropdown-item" href="programimi_ne_internet.php">Programimi ne Internet </a>
+								<a class="dropdown-item" href="DB.php">DB  </a>
+								<a class="dropdown-item" href="sistemet_operative.php">SO</a>
+                <a class="dropdown-item" href="algoritmet.php">Algoritmet</a>
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="UserTaskSender.php">Detyrat e mia</a></li>
-						<li class="nav-item"><a class="nav-link" href="signup.php">Vleresimet</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Vleresimet</a></li>
 						<li class="nav-item"><a class="nav-link" href="login.php">Dorezo Detyren</a></li>
             <li class="nav-item"><a class="nav-link" href="login.php">Pyetje</a></li>
             <li class="nav-item"><a class="nav-link" href="UpdateUserProfile.php">Profili</a></li>

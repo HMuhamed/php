@@ -101,6 +101,8 @@ if(!isset($_SESSION['user_id']))
         {     
           while($row = $result->fetch_assoc()) 
           {
+            if($row['subject']=='Sistemet Operative')
+            {
        ?>     <table>
         <col width="60">
         <col width="150">
@@ -116,6 +118,7 @@ if(!isset($_SESSION['user_id']))
              <br>
        <?php  
            } 
+          }
          }
          else
          {

@@ -144,15 +144,6 @@
   }
 }
 ?>
-<div class="header">
-  <ul style="display: inline-block;">
-   <li><a href="AdminHome.php" class="logo"><img src="<?php echo "$imagePath";?>" ></a></li>
-   <li><?php echo "ADMIN  ". $fname." ".$lname; ?></li>
-  </ul>
- <div class="header-right" >
-   <form>
-    <a class="active" href="../Logout.php">Logout</a></form>
-  </div>
 </div>
 <div class="header-center" >    
 </div>

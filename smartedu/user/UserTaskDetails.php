@@ -70,6 +70,7 @@
     $taskSenderImage=$row["task_sender_image"];
     $taskProject=$row["task_project"];
     $taskStatus=$row["task_status"];
+    $task_subject=$row["subject"];
 
   }
 
@@ -105,6 +106,12 @@
             <span class="fa fa-tag"></span>
             Task Tittle :<?php echo $taskName; ?>                           
           </div>  
+          <div class="header-left-bottom">     
+          <div class="icon1">
+            <span class="fa fa-tag"></span>
+            Task Subject :<?php echo $task_subject; ?>                           
+          </div>  
+
 
           <div class="icon1">
             <span class="fa fa-calendar"></span>
