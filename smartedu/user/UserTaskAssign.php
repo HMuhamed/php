@@ -1,161 +1,235 @@
-<?php session_start(); 
-if(!isset($_SESSION['user_id']))
-{
-  session_destroy();
-  header("location:../Logout.php");    
+<?php
+session_start(); 
+   if(!isset($_SESSION['user_id']))  // check admin or not
+   {
+    header("location:../Logout.php");    
 }?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User To User Task Assign</title>
+    <title>Add Project</title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="Slide Login Form template Responsive, Login form web template, Flat Pricing tables, Flat Drop downs Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Slide Login Form template Responsive, Login form web template, Flat Pricing tables, Flat Drop downs Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-	<script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
 
-	<!-- Custom Theme files -->
-	<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- //Custom Theme files -->
+    <!-- Custom Theme files -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
 
-	<!-- web font -->
-	<link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-	<!-- //web font -->
-	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    <!-- //web font -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
+    <style type="text/css">
+    .switch {
+       position: relative;
+       display: inline-block;
+       width: 60px;
+       height: 34px;
+   }
 
-	<script>
-		tinymce.init({
-			selector: '#mytextarea'
-		});
-	</script>
+   .switch input {
+       opacity: 0;
+       width: 0;
+       height: 0;
+   }
+
+   .slider {
+       position: absolute;
+       cursor: pointer;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background-color: #ccc;
+       -webkit-transition: .4s;
+       transition: .4s;
+   }
+
+   .slider:before {
+       position: absolute;
+       content: "";
+       height: 26px;
+       width: 26px;
+       left: 4px;
+       bottom: 4px;
+       background-color: white;
+       -webkit-transition: .4s;
+       transition: .4s;
+   }
+
+   input:checked + .slider {
+       background-color: #2196F3;
+   }
+
+   input:focus + .slider {
+       box-shadow: 0 0 1px #2196F3;
+   }
+
+   input:checked + .slider:before {
+       -webkit-transform: translateX(26px);
+       -ms-transform: translateX(26px);
+       transform: translateX(26px);
+   }
+
+   /* Rounded sliders */
+   .slider.round {
+       border-radius: 34px;
+   }
+
+   .slider.round:before {
+       border-radius: 50%;
+   }
+
+    #popup {
+ width: 350px;
+    height: 46px;
+    border-radius: 25px;
+    background: #ffb;
+    padding: 10px;
+    border: 2px solid #999;
+    position: absolute;
+    top: 151px;
+    left: 582px;
+}
+h1{
+ text-shadow: 2px 2px#133443;
+}
+
+</style>
 
 
 </head>
 <body>
-	<?php 
-	
-	include("html/Header.php");
-	
-
-	$userId=$_REQUEST['user_id'];
-	$myId=$_SESSION['user_id'];
-
-	//$sql = "SELECT * FROM user WHERE user_id = '".$userId."'";
-
-	$result = $func->select_with_condition(array('*'),'user',"user_id = '".$userId."'");
-	while($row = $result->fetch_assoc())
-	{       
-		$image=$row["user_image"];
-		$userFname=$row["user_fname"];
-		$userLname=$row["user_lname"];
-
-	}
-
-	//$sql1="SELECT * FROM user WHERE user_id = '".$myId."'";
-	$result1 = $func->select_with_condition(array('*'),'user',"user_id = '".$myId."'");
-	while($row = $result1->fetch_assoc())
-	{       
-		$myName=$row["user_fname"];
-		$myProfile=$row["user_image"];
-	}
-	?>
-
-	<div class="w5layouts-main"> 	
-		<div class="updateprofile-layer">
-			<h1>Assign Task to <?php  echo $userFname." ".$userLname ;?></h1>
-			<div class="header-main1">
-				<div class="main-icon">
-					<img src="<?php echo "$image";?>" class="rounded_img" >
-				</div>
-				<div class="header-left-bottom">
-					<form action="#" method="post">	
-						<div class="icon1">
-							<span class="fa fa-user"></span>
-							Task Tittle :<input type="text" placeholder="Enter Tittle" name="task_name" required=""/>
-						</div>	
-
-						<div class="icon1">
-							<span class="fa fa-user"></span>
-							Task Details :<textarea id="mytextarea" name ="task_details" ></textarea>
-						</div>	
-
-						<div class="icon1">
-							<span class="fa fa-user"></span>
-							 Task Deadline :<input type="datetime-local" placeholder="Dead Line" name="deadline" required=""/>
-						</div>
-                        
+    <?php
+    include("html/Header.php");  
+    ?>
+    <!-- add project form -->
+    <div class="w5layouts-main"> 
+        <div class="updateprofile-layer">
+            <h1 style="color: white;">Dorezo Detyren</h1>
+            <div class="header-main1">
+               <div class="header-left-bottom">
+                      <form  method="POST">
                         <div class="icon1">
-							<span class="fa fa-user"></span>
-							 Task Project :<select name="projects" >
-                                    <?php 
-                                       $status=1;
-                                         //$sql = "SELECT * FROM project WHERE project_status = '1' ";
-	                                     $result = $func->select_with_condition(array('*'),'project',"project_status = '".$status."'");
-                                        while($row = $result->fetch_assoc())
-	                             {       
-                                     echo "<option value=".$row['project_id'].">".$row['project_name']."</option>";
-                                  }
-                                ?>
-                 
-                          </select>
-						</div>	
+                            <span class="fa fa-user"></span>
+                            <label for="exampleInputEmail1">Emri i detyres</label>
+                            <input type="text"  name="projectname" placeholder="Project Name" required>
+                        </div> 
+					
+						<div class="icon1">
+						<label>Zgjedh semestrin</label>
+                         <select name="semestri" required>
+                         <option value="" disabled selected>Semestri</option>
+                        <option value="Semestri 3">Semestri 1</option>
+                        <option value="Semestri 3">Semestri 2</option>
+                         <option value="Semestri 3">Semestri 3</option>
+                          <option value="Semestri 4">Semestri 4</option>
+                       </select>
+                         </div>
+
+                        <div class="icon1">
+		
+                            <span class="fa fa-user"></span>
+                            <label for="exampleInputPassword1">Project Description</label>
+                            <textarea id="mytextarea" name ="projectdetails" ></textarea>
+						
+                        </div>  
+                       
+						<div class="icon1">
+		
+							<label>Zgjedh detyren</label>
+						
+						<select name="detyra" required>
+                         <option value="" disabled selected>Detyra</option>
+                    <option value="detyra1" name="detyra_1">Detyra 1</option>
+                    <option value="detyra2"  name="detyra_2">Detyra 2</option>
+                    <option value="detyra3"  name="detyra_3">Detyra 3</option>
+                    <option value="detyra4"  name="detyra_4">Detyra 4</option>
+                    </select>
+                     <br>
+                       <textarea  placeholder="Shkruaj linkun e detyres"></textarea>
+</br>
+					   </div>
+
+                      <div class="bottom">
+						  
+                          <input  type="submit" class="btn" name="submit" id="submit" value="ADD " />
+                        </div>                      
+
+                   </form>   
+                       <div class="bottom">
+                        <button class="btn" type="button" name="back"><a href="AdminHome.php" style="color: white;">Home</a></button>
+                       </div><br>                  
+               </div>
+           </div>  
+       </div>
+   </div>  
+    <!-- //add project form -->
+   <?php
+if(isset($_POST['submit'])) //on submit 
+{  
+   $function = new Operation();
+   $projectName = $_POST['projectname']; // get above form details in variable
+   $projectDescription = $_POST['projectdetails'];
+   $projectStatus = $_POST['project_status'];
+   $subject_name=$_POST['task_name'];
+
+   echo "$projectName";
+
+    if ($_POST['projectname']==null || $_POST['projectdetails']==null  || $_POST['task_name']==null) // empty field submission check
+    {
+     echo '<span style="color:red"> First Enter Something<br></span>';
+    } 
+    
+    else
+    {
+        $result = $func->insert('project',array('project_name','project_description','project_status','subject_name'),array("'$projectName'","'$projectDescription'","'$projectStatus'","'$subject_name'"));
+
+        if ($result === TRUE)  //insert form details in project table
+        {
+          ?>
+                
+          <div id="popup">PROJECT SUCCESSFULLY ADDED</div>
+          <script>history.pushState({}, "", "")</script>
+          <script type="text/javascript">
+            $(function() {
+             $('#popup').delay(3000).fadeOut();
+           });
+         </script>
+         <?php
+       }
+       else
+       {
+         echo "not added";
+       }
+    }
+  
+}
+
+?>
 
 
-						<div class="bottom">
-							<button class="btn" type="submit" name="assign" >Assign</button>
-						</div><br>
 
-					</form>			
-
-					<form action="#" method="post">	
-
-						<div class="bottom">
-							<button class="btn" type="submit" name="home" >HOME</button>
-						</div>
-					</form>
-				</div>			
-			</div>				
-		</div>
-	</div>	
-	<?php
-
-	if(isset($_POST['assign']))
-	{
-
-		$taskName=$_POST['task_name'];
-		$taskDetail=$_POST['task_details'];
-		$taskDate =date('Y-m-d H:i:s');
-		$taskDeadLine=$_POST['deadline'] ; 
-		$taskProject=$_POST['projects'];
-		//echo "$taskName,$taskDetail,$taskDeadLine,$myId,$userId";     
-
-		// $sql = "INSERT INTO task (task_name,task_issuedate,task_details,task_project,dead_line,task_receiver,task_sender,task_sender_name,task_sender_image)
-		// VALUES ('$taskName','$taskDate', '$taskDetail','$taskProject','$taskDeadLine', '$userId','$myId','$myName','$myProfile')"; 
-
-		 $result = $func->insert('task',array('task_name','task_issuedate','task_details','task_project','dead_line','task_receiver','task_sender','task_sender_name','task_sender_image'),array("'$taskName'","'$taskDate'", "'$taskDetail'","'$taskProject'","'$taskDeadLine'","'$userId'","'$myId'","'$myName'","'$myProfile'"));
-
-		if ($result=== TRUE) 
-		{          
-			echo '<meta http-equiv=Refresh content="0;url=AllMates.php?reload=1">';       
-		}
-		else
-		{
-			echo "Cannot update";
-		}
-
-	}    
-
-	?>
+ 
 
 </body>
 </html>

@@ -81,9 +81,9 @@
                 <a class="dropdown-item" href="algoritmet.php">Algoritmet</a>
 							</div>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="UserTaskSender.php">Detyrat e mia</a></li>
+            <li class="nav-item"><a class="nav-link" href="UserTaskSender.php">Detyrat e mia</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">Vleresimet</a></li>
-						<li class="nav-item"><a class="nav-link" href="login.php">Dorezo Detyren</a></li>
+						<li class="nav-item"><a class="nav-link" href="UserTaskAssign.php">Dorezo Detyren</a></li>
             <li class="nav-item"><a class="nav-link" href="login.php">Pyetje</a></li>
             <li class="nav-item"><a class="nav-link" href="UpdateUserProfile.php">Profili</a></li>
             <li class="nav-item"><a class="nav-link" href="../Logout.php">Dil</a></li>

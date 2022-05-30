@@ -190,6 +190,18 @@ $exists="Tashme ekziston nje perdorues me kete emer";
 	}
 
 ?>
+<?php
+
+setcookie("alert", "", time() - 3600);
+?>
+
+<?php
+$cookie_name = "Error";
+$cookie_value = "404";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+?>
+
+	
 	
 <div class="container my-4 ">
 	
@@ -269,5 +281,42 @@ https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 "sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous">
 </script>
+<?php
+
+    if( isset( $_POST["chk"], $_POST['NewBGColor'] ) ) {
+        setcookie( "BColor", $_POST['NewBGColor'], time()+3600 );  
+    }
+
+    $Bcolor = isset( $_COOKIE['BColor'] ) ? $_COOKIE['BColor'] : 'white';
+
+    $colours=array(
+        'white','red','blue','black'
+    );
+?>
+
+<html>
+    <head>
+
+    </head>
+    <body style="background:<?php echo $Bcolor;?>">
+
+        <form method="Post">
+
+            
+            <select name="NewBGColor" >
+                <?php
+                    foreach( $colours as $colour ){
+                        $selected=$colour==$Bcolor ? ' selected' : '';
+                        printf('<option value="%1$s"%2$s>%1$s',$colour,$selected);
+                    }
+                ?>
+            </select>
+            </select>
+            <input type="hidden" name="chk" value="true"/>
+            <input type="submit"  value="submit" />
+        </form>
+    </body>
+</html>
+</body>
 </body>
 </html>
