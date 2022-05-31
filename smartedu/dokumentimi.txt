@@ -1,0 +1,39 @@
+Hyrje 
+
+Qëllimi i projektit tone ka qenë krijimi i një webfaqeje e cila ndihmon në menaxhimin e detyrave profesorë – student në lëndët Programimi në internet, DB, SO, Algoritmet.
+Teknologjite e perdorura jane : PHP, PHP&amp;MySql, Ajax,  dhe poashtu edhe teknologjitë e tjera të ueb-it si HTML5, etj.
+
+Dizajnimi :
+Ne website eshte e paraqitur nje dashboard, ndersa pjesa e  Login,  duhet të jepet emri i shfrytëzuesit dhe
+fjalëkalimi. Gjithashtu pjesa e  ‘Regjistrohu’ për regjistrimin e shfrytëzuesit të ri, ku
+me rastin e klikimit  duhet të paraqitet një formë e cila përmban këto informata:
+Emri, Mbiemri,Roli(Student, Profesor/asistent), Shfrytëzuesi, Fjalëkalimi, Konfirmo fjalëkalimin,
+E‐mail adresa, Konfirmo e‐mail adresën dhe butonin ‘Regjistrohu’.
+Nëse shfrytëzuesi tashmë është i regjistruar dhe logohet, atëherë të paraqitet faqja e
+personalizuar për shfrytëzuesin specifik me informata e tij në fokus
+
+Menyte kryesore qe permban projekti :
+Menyja ‘Lëndët’ duhet të përmbaje listën e lëndëve të lartë cekura.
+Nëse klikohet njera nga lëndët duhet të paraqitet lista e detyrave e grupuara në semestrw.
+Cdo detyrë duhet të ketë një link shfaq më shume, nëse klikohet ai link duhet të hapet një faqe e
+cila duhet të përmbaje titullin e detyrës, përshkrimin, kohën e dorëzimit, dhe specifkat tjera
+rreth detyrës.
+Tek menyja lëndët, nese jemi te loguar me rolin “profesor”, duhet të shfaqet edhe një buton
+“Shto lëndë”.
+Nëse zgjedhet opsioni “Shto lëndë” duhet të hapet një faqe me formën për regjistrim të një
+lënde të re.
+Secila lëndë duhet të ketë një buton “Modifiko”, me klikimin e të cilit hapet faqja për modifikin
+e lëndes.
+Tek menyja “Detyrat e mia” duhet të gjenden të gjitha detyrat që studenti i ka dorëzuar të ndara
+sipas lëndës dhe semestrit (filtera).
+Tek menyja “Dorëzo detyrën” duhet të implementohet forma për të bërë submit një detyrë të
+caktuar (forma duhet të përbajë fushat: zgjedh lëndën, zgjedh semestrin, zgjedh detyrën).
+
+Poashtu :
+Për rolin profesor, në menynë dorëzimet, duhet të jenë në formë të linqeve të radhitura të gjitha
+detyrat që janë dërguar nga studentët dhe të cilat ende nuk janë vlerësuar.
+Cdo rresht duhet të përbaje të dhënat e studentit, detyrën, datën e dorëzimit dhe butonin “më
+shumë” i cili pas klikimit shfaq të dhënat e detyrës së dorëzuar dhe një fushë ku profesori do ta
+plotësojë me vlerësim.
+
+

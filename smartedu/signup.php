@@ -25,17 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	$num1 = mysqli_num_rows($result1);
 
-    $sql2 = "Select * from admin where admin_name='$Name'";
-	
-	$result2 = mysqli_query($conn, $sql2);
-	
-	$num2 = mysqli_num_rows($result2);
 	
 	// This sql query is use to check if
 	// the username is already present
 	// or not in our Database
-	if($num1 == 0 && $role='student') {
-		if(($password == $cpassword) && $exists==false ) {
+	if($num1 == 0) {
+		if((($password == $cpassword) && $exists==false) && !empty($Name)&& !empty($Email)&& !empty($password)&& !empty($cpassword) ) {
             $sql1 = "INSERT INTO `user` ( `user_fname`, `user_lname`, `user_email`,
             `user_password`, `user_status`) VALUES ('$Name', '$Surname', '$Email',
             '$password', '$status')";
@@ -43,45 +38,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 			$result1 = mysqli_query($conn, $sql1);
 	
-			if ($result1) {
-				$showAlert = true;
-			}
+			// if ($result1) {
+			// 	$showAlert = true;
+			// }
 		}
 		else {
 			$showError = "Fjalekalimet nuk perputhen";
 		}	
 	}// end if
+
+	if (empty($Email)) {
+		$showError = "Shkruani emailin."; 
+	  }
+
+	  if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^",$Email))
+{ 
+$showError="Invalid Email";
+}else{
+	$showError="Valid Email";
+}
 	
-if($num1>0)
-{
-	$exists="Tashme ekziston nje perdorues me kete emer";
-}
-
-if($num2 == 0  && $role='profesor') {
-    if(($password == $cpassword) && $exists==false) {
-        $sql2 = "INSERT INTO `admin` ( `admin_name`, `admin_email`,
-        `admin_password`, `admin_status`) VALUES ('$Name', '$Email',
-        '$password', '$status')";
+// if($num1>0)
+// {
+// 	$exists="Tashme ekziston nje perdorues me kete emer";
+// }
 
 
-        $result2 = mysqli_query($conn, $sql2);
+ 
 
-        if ($result2) {
-            $showAlert = true;
-        }
-    }
-    else {
-        $showError = "Fjalekalimet nuk perputhen";
-    }	
-}// end if
-
-if($num2>0)
-{
-$exists="Tashme ekziston nje perdorues me kete emer";
-}
 	
 }//end if
-
 
 
 
@@ -190,18 +176,6 @@ $exists="Tashme ekziston nje perdorues me kete emer";
 	}
 
 ?>
-<?php
-
-setcookie("alert", "", time() - 3600);
-?>
-
-<?php
-$cookie_name = "Error";
-$cookie_value = "404";
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-?>
-
-	
 	
 <div class="container my-4 ">
 	
@@ -281,42 +255,5 @@ https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 "sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous">
 </script>
-<?php
-
-    if( isset( $_POST["chk"], $_POST['NewBGColor'] ) ) {
-        setcookie( "BColor", $_POST['NewBGColor'], time()+3600 );  
-    }
-
-    $Bcolor = isset( $_COOKIE['BColor'] ) ? $_COOKIE['BColor'] : 'white';
-
-    $colours=array(
-        'white','red','blue','black'
-    );
-?>
-
-<html>
-    <head>
-
-    </head>
-    <body style="background:<?php echo $Bcolor;?>">
-
-        <form method="Post">
-
-            
-            <select name="NewBGColor" >
-                <?php
-                    foreach( $colours as $colour ){
-                        $selected=$colour==$Bcolor ? ' selected' : '';
-                        printf('<option value="%1$s"%2$s>%1$s',$colour,$selected);
-                    }
-                ?>
-            </select>
-            </select>
-            <input type="hidden" name="chk" value="true"/>
-            <input type="submit"  value="submit" />
-        </form>
-    </body>
-</html>
-</body>
 </body>
 </html>

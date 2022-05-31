@@ -80,6 +80,26 @@
   <!-- //main -->
 
   <?php
+    //Përdorimi i PHP sesioneve për te numëruar vizitat në një ueb faqe
+    session_start();
+    if( isset( $_SESSION['numeruesi'] ) )
+    {
+        $_SESSION['numeruesi'] += 1;
+    }
+    else
+    {
+        $_SESSION['numeruesi'] = 1;
+    }
+    $msg = "Ju keni vizituar kete faqe ". $_SESSION['numeruesi'];
+    $msg .= " here ne kete sesion.";
+?>
+<html>
+<head>
+
+</head>
+<body>
+<?php echo ( $msg ); ?>
+  <?php
   error_reporting(-1);
 ini_set('display_errors', 'On');
   session_start();

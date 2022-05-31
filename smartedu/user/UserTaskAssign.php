@@ -147,15 +147,12 @@ h1{
                          </div>
 
                         <div class="icon1">
-		
                             <span class="fa fa-user"></span>
                             <label for="exampleInputPassword1">Project Description</label>
                             <textarea id="mytextarea" name ="projectdetails" ></textarea>
-						
                         </div>  
                        
 						<div class="icon1">
-		
 							<label>Zgjedh detyren</label>
 						
 						<select name="detyra" required>
@@ -171,7 +168,6 @@ h1{
 					   </div>
 
                       <div class="bottom">
-						  
                           <input  type="submit" class="btn" name="submit" id="submit" value="ADD " />
                         </div>                      
 
@@ -226,10 +222,6 @@ if(isset($_POST['submit'])) //on submit
 }
 
 ?>
-
-
-
  
-
 </body>
 </html>
